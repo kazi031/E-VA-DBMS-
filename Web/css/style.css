@@ -1,0 +1,40 @@
+header{
+  background: #202020;
+  color:#ffffff;
+  padding-top:5px;
+  min-height:85px;
+  border-bottom:white 2px solid;
+
+}
+
+header a{
+  color:#ffffff;
+  text-decoration:none;
+  text-transform: uppercase;
+  font-size:16px;
+}
+
+header li{
+  float:right;
+  display:inline;
+  padding: 0 20px 0 20px;
+}
+
+header a:hover{
+  color:cyan;
+  font-weight:bold;
+  text-decoration:none;
+}
+header #branding{
+  float:left;
+}
+
+header #branding h1{
+  margin:0;
+  padding-bottom: 10px;
+}
+
+header .highlight,{
+  color:#fec503;
+  font-weight:bold;
+}

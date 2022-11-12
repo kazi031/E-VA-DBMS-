@@ -1,0 +1,25 @@
+header{
+  background: #202020;
+  color:#ffffff;
+  padding-top:15px;
+  min-height:50px;
+  border-bottom:white 2px solid;
+
+}
+
+header a{
+  color:#ffffff;
+  text-decoration:none;
+  font-style: italic;
+  font-size:15px;
+}
+
+
+header a:hover{
+  background: #202020;
+  
+  color:#fec503;
+  font-size:25px;
+  min-height:70px;
+  text-decoration:none;
+}

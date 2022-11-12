@@ -1,0 +1,684 @@
+create table AreaManager
+(
+	a_id VARCHAR2(15) constraint
+	AreaManager_a_id_pk PRIMARY KEY,
+	name VARCHAR2(20),
+	contact_no VARCHAR2(20),
+	store_address VARCHAR2(20),
+	area_location VARCHAR2(20),
+	password VARCHAR2(20)
+)
+insert all 
+into AreaManager values('AM-001','Mark','9004005','Section-12','Mirpur','123')
+into AreaManager values('AM-002','Umesh','9004006','Section-3','Uttara','123')
+into AreaManager values('AM-003','Danny','9004007','central_road','Dhanmondi','123')
+into AreaManager values('AM-004','Jacob','9004008','macher_bazar','Jatrabari','123')
+select 1 from dual;
+
+
+create table AreaStorage
+(
+	unit_received NUMBER(10),
+	daily_expense NUMBER(10),
+	access_date DATE,
+	a_id VARCHAR2(15),
+	CONSTRAINT AreaStorage_a_id_fk FOREIGN KEY(a_id) REFERENCES AreaManager(a_id) ON DELETE CASCADE
+)
+create table L_E_C4
+(
+    lec_id VARCHAR2(15) constraint
+	L_E_C4_lec_id_pk PRIMARY KEY,
+    name VARCHAR2(20),
+    area VARCHAR2(20),
+    contact VARCHAR2(20),
+    type_of_emp VARCHAR2(20),
+	a_id VARCHAR2(15),
+	CONSTRAINT L_E_C4_a_id_fk FOREIGN KEY(a_id) REFERENCES AreaManager(a_id) ON DELETE CASCADE
+)
+
+create sequence local_e_c
+minvalue 100000
+start with 100000
+increment by 1
+cache 10;
+
+insert into L_E_C4 values('L-1','Mr.X','Mirpur','013','local');
+
+
+
+create table CommunityWorker4
+(
+
+    cmw_id VARCHAR2(15) not null REFERENCES L_E_C4(lec_id),
+    community_name VARCHAR2(20),
+    waste_container NUMBER(10),
+    p_day_earning NUMBER(10),
+	constraint  CommunityWorker4_cmw_id_pk PRIMARY KEY(cmw_id)
+)
+
+create table Employee4
+(
+    emp_id VARCHAR2(15) not null REFERENCES L_E_C4(lec_id),
+    address VARCHAR2(20),
+    salary NUMBER(10),
+    join_date DATE,
+    rate NUMBER(10),
+    password VARCHAR2(20),
+    available VARCHAR2(12),
+	constraint Employee4_emp_id_pk PRIMARY KEY(emp_id)
+
+)
+
+insert into Employee4 values('L-00001','Mirpur',500,to_date('5-JAN-2010','dd-MON-yyyy'),5,'abc','free');
+
+create table ScrapDealer4
+(
+
+    sd_id VARCHAR2(15) not null REFERENCES L_E_C4(lec_id),
+    trade_license VARCHAR2(20),
+    p_day_earning NUMBER(10),
+	constraint ScrapDealer4_sd_id_pk PRIMARY KEY(sd_id)
+)
+
+create Table G_O_U4
+(
+gen_id VARCHAR2(15) constraint G_O_U4_gen_id_pk PRIMARY KEY,
+name VARCHAR2(30),
+contact VARCHAR2(20),
+email VARCHAR2(30),
+area VARCHAR2(30),
+dob DATE,
+gen_emp_id VARCHAR2(15),
+message VARCHAR2(30),
+status  VARCHAR2(10),
+CONSTRAINT G_O_U4_gen_emp_id_fk FOREIGN KEY(gen_emp_id) REFERENCES Employee4(emp_id) ON DELETE CASCADE
+
+)
+
+create sequence gen_user
+minvalue 100000
+start with 100000
+increment by 1
+cache 10;
+
+insert into G_O_U4 values ('G-1','Mr.Y','019','x@x.com','Mirpur',to_date('1-JUN-2011','dd-MON-yyyy'),'L-1');
+
+
+create table CorporateUser
+(
+	c_id VARCHAR2(15) constraint
+	CorporateUser_id_pk PRIMARY KEY,
+	mutual_contact VARCHAR2(20),
+	company_name VARCHAR2(20),
+	trade_license VARCHAR2(20),
+	address VARCHAR2(20),
+	recycle_product_amount NUMBER(10),
+	a_id VARCHAR2(15),
+	CONSTRAINT CorporateUser_a_id_fk FOREIGN KEY(a_id) 
+	REFERENCES AreaManager(a_id) ON DELETE CASCADE
+)
+
+create sequence corporate_company
+minvalue 100000
+start with 100000
+increment by 1
+cache 10;
+
+
+create table SecondaryTrans
+(
+	info_id VARCHAR2(15) constraint
+	SecondaryTrans_info_id_pk PRIMARY KEY,
+	total_revenue NUMBER(10),
+	total_cost NUMBER(10),
+	total_profit NUMBER(10),
+	info_date DATE,
+	a_id VARCHAR2(15),
+	CONSTRAINT SecondaryTrans_a_id_fk FOREIGN KEY(a_id) 
+	REFERENCES AreaManager(a_id) ON DELETE CASCADE
+)
+
+create sequence secondary_trans
+minvalue 100000
+start with 100000
+increment by 1
+cache 10;
+
+create or replace trigger after_AreaStorage_ins
+AFTER INSERT OR UPDATE ON AreaStorage 
+FOR EACH ROW
+DECLARE
+	v_revenue NUMBER(10);
+	v_cost NUMBER(10);
+	v_profit NUMBER(10);
+	v_a_id VARCHAR2(15);
+	v_access_date DATE;
+	v_max_date DATE;
+
+BEGIN
+	v_revenue := :new.unit_received * 10;
+	v_cost := :new.daily_expense;
+	v_profit := v_revenue-v_cost;
+	v_a_id := :new.a_id;
+	v_access_date := :new.access_date;
+	SELECT MAX(info_date) INTO v_max_date FROM SecondaryTrans WHERE a_id = :new.a_id;
+	IF (:new.access_date <= v_max_date) THEN
+		UPDATE SecondaryTrans SET total_revenue=v_revenue,total_cost=v_cost,total_profit=v_profit WHERE info_date=v_access_date AND 
+                a_id=v_a_id;
+	ELSE
+		INSERT INTO SecondaryTrans(info_id,total_revenue,total_cost,total_profit,info_date,a_id) 
+                VALUES('ST'||secondary_trans.nextval,v_revenue,v_cost,v_profit,v_access_date,v_a_id);
+	END IF;
+END;
+
+
+create table segregation(
+se_process_id varchar2(15) constraint seg_se_process_id_pk primary key,
+
+material_type varchar2(15),
+amount varchar2(15),
+sort_process_id varchar2(15),
+process_id varchar2(15),
+
+constraint seg_process_id_fk foreign key(sort_process_id) references sort(sort_process_id)
+constraint seg_r_pro_id_fk foreign key(process_id) references recycle(process_id) on delete cascade
+
+);
+
+
+create table sort(
+
+process_id varchar2(15) constraint sort_product_type_pk primary key,
+
+product_type varchar2(15),
+
+s_amount varchar2(15),
+
+c_id varchar2(15),
+
+constraint sort_c_id_fk foreign key(c_id) references company(c_id) on delete cascade 
+
+);
+
+
+create table refurbished(
+
+re_process_id varchar2(15) constraint re_re_process_id_pk primary key,
+product_name varchar2(25),
+date_of_manu date,
+refurb_amount varchar2(15),
+repair_cost varchar2(15),
+process_id varchar2(15),
+
+constraint re_process_id_fk foreign key(process_id) references sort(process_id) on delete cascade
+
+);
+
+
+create table company(
+
+c_id varchar2(15) constraint company_c_id_pk primary key,
+name varchar2(15),
+trade_no varchar2(15),
+date_of_entry date,
+waste_received number(9,2),
+waste_recycled number(9,2),
+waste_dumped number(9,2)
+
+
+);
+
+
+create table employee(
+
+id varchar2(15) constraint employee_id_pk primary key,
+name varchar2(15),
+designation varchar2(15),
+sector varchar2(15),
+salary number(9,2),
+contact varchar2(15),
+email varchar2(15),
+c_id varchar2(15),
+
+constraint employee_c_id_fk foreign key(c_id) references company(c_id) on delete cascade
+
+);
+
+
+create table recycle(
+
+r_process_id varchar2(15) constraint recycle_r_process_id_pk primary key,
+type varchar2(15),
+recycled_amount number(9,2),
+date_of_recycle date
+
+);
+
+
+create table page_admin(
+
+user_id varchar2(20) constraint page_admin_pk primary key,
+user_password varchar2(10)
+);
+
+
+create table storage_room (
+storage_id varchar2(10) constraint storage_id_pk primary key,
+storage_district varchar2(10) not null,
+storage_area varchar2(10) not null,
+storage_manager varchar2(20) not null,
+storage_capacity varchar2(10) not null
+);
+
+
+
+create table product(
+product_id varchar2(10) constraint product_id_pk primary key,
+product_name_p varchar(50) not null,
+product_price number(7,2) not null,
+product_type varchar2(20) not null,
+storage_id varchar2(10),
+constraint storage_id_fk foreign key(storage_id) references storage_room (storage_id)on delete cascade 
+);
+
+
+
+create sequence product_sequence;
+
+
+alter table product add product_status varchar2(10);
+
+
+alter table product add prod_desc_high varchar2(50);
+
+
+alter table product add re_process_id varchar2(15);
+
+
+
+create table exports(
+e_id varchar2(10) constraint e_id_pk primary key,
+customer_comp varchar2(50),
+customer_trade varchar2(50),
+customer_country varchar2(20),
+date_of_export date ,
+export_rev number(15,2),
+amount_exp varchar2(20)
+);
+
+
+
+alter table exports add export_cost number(20,2);
+
+alter table exports add export_desc varchar2(100);
+
+
+alter table exports add se_process_id varchar2(15);
+
+alter table exports add constraint se_process_id_fk foreign key(se_process_id) references segregation(se_process_id) on delete cascade;
+
+create sequence prod_trans_sequence;
+
+
+create or replace trigger after_update_prod
+after update of product_status on product
+for each row
+declare
+    
+    t_trans_date date;
+    t_prod_revenue number(10,2);
+    t_product_id varchar2(10);
+begin
+    if :new.product_status='sold' then
+    
+    t_trans_date :=  sysdate ;
+    t_prod_revenue :=  :new.product_price * 0.10;
+    t_product_id := :new.product_id;
+    end if;
+    
+    insert into prod_trans (prod_trans_id,trans_date,prod_revenue,product_id) values(prod_trans_sequence.nextval
+    ,t_trans_date,t_prod_revenue,t_product_id);
+end;
+
+
+create table export_trans(
+export_trans_id varchar2(10) constraint export_trans_id_pk primary key ,
+export_profit number(10,2),
+e_id varchar2(10),
+constraint e_id_fk foreign key (e_id) references exports (e_id) on delete cascade
+);
+
+
+
+create sequence export_trans_sequence
+start with 1
+increment by 1
+cache 10;
+
+
+
+create or replace trigger after_ins_export
+after insert or update on exports
+for each row
+declare
+    
+    t_export_revenue number(15,2);
+    t_export_cost number(20,2);
+    t_export_profit number(10,2);
+    t_e_id varchar2(10);
+begin
+
+    t_export_revenue :=  :new.export_rev;
+    t_export_cost := :new.export_cost;
+    t_export_profit := t_export_revenue - t_export_cost ;
+    t_e_id := :new.e_id;
+    
+    
+    insert into export_trans (export_trans_id,export_profit,e_id) values(export_trans_sequence.nextval
+    ,t_export_profit,t_e_id);
+end;
+
+
+create sequence export_sequence;
+
+
+
+
+ALTER TABLE steel_recycle DROP CONSTRAINT steel_pk;
+ALTER TABLE steel_recycle DROP CONSTRAINT steel_fk;
+
+ALTER TABLE pcb_recycle DROP CONSTRAINT pcb_pk;
+ALTER TABLE pcb_recycle DROP CONSTRAINT pcb_fk;
+
+ALTER TABLE copper_wire_recycle DROP CONSTRAINT cop_pk;
+ALTER TABLE copper_wire_recycle DROP CONSTRAINT cop_fk;
+
+ALTER TABLE plastic_recycle DROP CONSTRAINT plastic_pk;
+ALTER TABLE plastic_recycle DROP CONSTRAINT plastic_fk;
+
+ALTER TABLE recycle DROP CONSTRAINT recycle_pk;
+ALTER TABLE recycle DROP CONSTRAINT recycle_fk;
+
+ALTER TABLE materials DROP CONSTRAINT materials_pk;
+
+ALTER TABLE recycled_storage DROP CONSTRAINT rs_pk;
+ALTER TABLE recycled_storage DROP CONSTRAINT rs_fk;
+
+ALTER TABLE recycled_items DROP CONSTRAINT it_pk;
+
+
+
+DROP TABLE steel_recycle;
+DROP TABLE pcb_recycle;
+DROP TABLE copper_wire_recycle;
+DROP TABLE plastic_recycle;
+DROP TABLE recycle;
+DROP TABLE materials;
+
+
+DROP TABLE recycled_storage;
+DROP TABLE recycled_items;
+
+CREATE TABLE materials
+(
+     material_code VARCHAR2(4) NOT NULL,
+     material_name VARCHAR2(15) NOT NULL,
+     CONSTRAINT ma_pk PRIMARY KEY(material_code)
+);
+
+
+CREATE TABLE recycle
+(
+    process_id    VARCHAR2(15)   NOT NULL,
+    material_code VARCHAR2(4) NOT NULL,
+    material_amount NUMBER(10,2) NOT NULL,
+    process_date TIMESTAMP NOT NULL,
+    CONSTRAINT recycle_pk PRIMARY KEY(process_id),
+    CONSTRAINT recycle_fk FOREIGN KEY(material_code) REFERENCES materials(material_code) ON DELETE CASCADE
+);
+
+CREATE TABLE steel_recycle
+(
+    process_id VARCHAR2(15)   NOT NULL,
+    steel NUMBER(10,2) NOT NULL,
+    iron  NUMBER(10,2) NOT NULL,
+    CONSTRAINT steel_pk PRIMARY KEY(process_id),
+    CONSTRAINT steel_fk FOREIGN KEY(process_id) REFERENCES recycle(process_id) ON DELETE CASCADE
+);
+
+CREATE TABLE pcb_recycle
+(
+    process_id VARCHAR2(15)   NOT NULL,
+    copper NUMBER(10,2) NOT NULL,
+    tin NUMBER(10,2) NOT NULL,
+    steel NUMBER(10,2) NOT NULL,
+    gold NUMBER(10,2) NOT NULL,
+    silver NUMBER(10,2) NOT NULL,
+    CONSTRAINT pcb_pk PRIMARY KEY(process_id),
+    CONSTRAINT pcb_fk FOREIGN KEY(process_id) REFERENCES recycle(process_id) ON DELETE CASCADE
+);
+
+CREATE TABLE copper_wire_recycle
+(
+    process_id VARCHAR2(15)   NOT NULL,
+    copper NUMBER(10,2) NOT NULL,
+    plastic NUMBER(10,2) NOT NULL,
+    CONSTRAINT cop_pk PRIMARY KEY(process_id),
+    CONSTRAINT cop_fk FOREIGN KEY(process_id) REFERENCES recycle(process_id) ON DELETE CASCADE
+);
+
+CREATE TABLE plastic_recycle
+(
+    process_id VARCHAR2(15)   NOT NULL,
+    plastic NUMBER(10,2) NOT NULL,
+    CONSTRAINT plastic_pk PRIMARY KEY(process_id),
+    CONSTRAINT plastic_fk FOREIGN KEY(process_id) REFERENCES recycle(process_id) ON DELETE CASCADE
+);
+
+
+
+CREATE TABLE recycled_items
+(
+    item_code VARCHAR2(4) NOT NULL,
+    item_name VARCHAR2(15) NOT NULL,
+    CONSTRAINT it_pk PRIMARY KEY(item_code)
+);
+
+CREATE TABLE recycled_storage
+(
+    item_code VARCHAR2(4) NOT NULL,
+    item_amount NUMBER(10,2) NOT NULL,
+    CONSTRAINT rs_pk PRIMARY KEY(item_code),
+    CONSTRAINT rs_fk FOREIGN KEY(item_code) REFERENCES recycled_items(item_code) ON DELETE CASCADE
+);
+​
+
+
+CREATE OR REPLACE TRIGGER after_steel_recycle_ins
+AFTER INSERT ON steel_recycle
+FOR EACH ROW
+DECLARE
+v_curr_steel_amount NUMBER(10,2); 
+v_curr_iron_amount NUMBER(10,2);
+BEGIN
+--  steel
+	SELECT rs.item_amount
+		INTO v_curr_steel_amount FROM recycled_storage rs
+	WHERE item_code = 'r001';
+--  iron	
+	SELECT rs.item_amount
+		INTO v_curr_iron_amount FROM recycled_storage rs
+	WHERE item_code = 'r002';
+--  update steel
+	UPDATE recycled_storage rs
+		SET rs.item_amount = v_curr_steel_amount + :new.steel
+	WHERE rs.item_code = 'r001';
+--  update iron
+	UPDATE recycled_storage rs
+		SET rs.item_amount = v_curr_iron_amount + :new.iron
+	WHERE rs.item_code = 'r002';	
+END;
+
+
+
+CREATE OR REPLACE TRIGGER after_pcb_recycle_ins
+AFTER INSERT ON pcb_recycle
+FOR EACH ROW
+DECLARE
+v_curr_copper_amount NUMBER(10,2); 
+v_curr_tin_amount NUMBER(10,2);
+v_curr_steel_amount NUMBER(10,2);
+v_curr_gold_amount NUMBER(10,2);
+v_curr_silver_amount NUMBER(10,2);
+BEGIN
+--  copper
+	SELECT rs.item_amount
+		INTO v_curr_copper_amount FROM recycled_storage rs
+	WHERE item_code = 'r003';
+--  tin
+	SELECT rs.item_amount
+		INTO v_curr_tin_amount FROM recycled_storage rs
+	WHERE item_code = 'r004';
+--  steel
+	SELECT rs.item_amount
+		INTO v_curr_steel_amount FROM recycled_storage rs
+	WHERE item_code = 'r001';
+--  gold
+    SELECT rs.item_amount
+		INTO v_curr_gold_amount FROM recycled_storage rs
+	WHERE item_code = 'r005';
+--  silver
+	SELECT rs.item_amount
+		INTO v_curr_silver_amount FROM recycled_storage rs
+	WHERE item_code = 'r006';
+
+--  update copper
+	UPDATE recycled_storage rs
+		SET rs.item_amount = v_curr_copper_amount + :new.copper
+	WHERE rs.item_code = 'r003';
+--  update tin
+	UPDATE recycled_storage rs
+		SET rs.item_amount = v_curr_tin_amount + :new.tin
+	WHERE rs.item_code = 'r004';
+--  update steel
+	UPDATE recycled_storage rs
+		SET rs.item_amount = v_curr_steel_amount + :new.steel
+	WHERE rs.item_code = 'r001';
+--  update gold
+	UPDATE recycled_storage rs
+		SET rs.item_amount = v_curr_gold_amount + :new.gold
+	WHERE rs.item_code = 'r005';
+--  update silver
+	UPDATE recycled_storage rs
+		SET rs.item_amount = v_curr_silver_amount + :new.silver
+	WHERE rs.item_code = 'r006';
+END;
+
+
+
+CREATE OR REPLACE TRIGGER after_copper_wire_recycle_ins
+AFTER INSERT ON copper_wire_recycle
+FOR EACH ROW
+DECLARE
+v_curr_copper_amount NUMBER(10,2); 
+v_curr_plastic_amount NUMBER(10,2);
+BEGIN
+--  copper
+	SELECT rs.item_amount
+		INTO v_curr_copper_amount FROM recycled_storage rs
+	WHERE item_code = 'r003';
+--  plastic	
+	SELECT rs.item_amount
+		INTO v_curr_plastic_amount FROM recycled_storage rs
+	WHERE item_code = 'r007';
+--  update copper
+	UPDATE recycled_storage rs
+		SET rs.item_amount = v_curr_copper_amount + :new.copper
+	WHERE rs.item_code = 'r003';
+--  update plastic
+	UPDATE recycled_storage rs
+		SET rs.item_amount = v_curr_plastic_amount + :new.plastic
+	WHERE rs.item_code = 'r007';	
+END;
+
+
+
+CREATE OR REPLACE TRIGGER after_plastic_recycle_ins
+AFTER INSERT ON plastic_recycle
+FOR EACH ROW
+DECLARE
+v_curr_plastic_amount NUMBER(10,2);
+BEGIN
+--  plastic    
+    SELECT rs.item_amount
+        INTO v_curr_plastic_amount FROM recycled_storage rs
+    WHERE item_code = 'r007';
+
+--  update plastic
+    UPDATE recycled_storage rs
+        SET rs.item_amount = v_curr_plastic_amount + :new.plastic
+    WHERE rs.item_code = 'r007';    
+END;​
+
+
+
+
+ALTER TABLE errorsOfRecycle DROP CONSTRAINT e_r_e_id_fk;
+ALTER TABLE errorsOfRecycle DROP CONSTRAINT e_r_p_id_fk;
+
+ALTER TABLE error DROP CONSTRAINT e_e_id_pk;
+
+
+
+
+DROP TABLE error;
+DROP TABLE errorsOfRecycle;
+
+
+
+
+
+create table error(
+
+error_id varchar2(15) constraint e_e_id_pk primary key,
+type varchar2(15),
+solving_cost number(9,2)
+
+);
+
+create sequence error_error_id_seq
+increment by 1 
+start with 100
+maxvalue 1000000
+nocycle ;
+
+
+
+create table errorsOfRecycle(
+
+error_id varchar2(15),
+r_process_id varchar2(15),
+
+constraint e_r_e_id_fk foreign key(error_id) references error(error_id) on delete cascade,
+constraint e_r_p_id_fk foreign key(r_process_id) references recycle(process_id) on delete cascade
+
+);
+
+    
+    
+
+
+
+
+​
+
+
+
+
+
+
+
+
+
+
+

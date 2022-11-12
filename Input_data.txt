@@ -1,0 +1,383 @@
+insert all
+into L_E_C4 values('L-100008','Mahin Khan','Mirpur','01800000002','local','AM-001')
+into L_E_C4 values('L-100009','Solaiman Khan','Mirpur','01800000003','local','AM-001')
+into L_E_C4 values('L-100010','Kuddus Khan','Mirpur','01800000004','local','AM-001')
+into L_E_C4 values('L-100011','Halim Khan','Mirpur','01800000005','local','AM-001')
+into L_E_C4 values('L-100012','Khadem Khan','Mirpur','01800000006','local','AM-001')
+into L_E_C4 values('L-100013','Mukesh Khan','Mirpur','01800000007','local','AM-001')
+into L_E_C4 values('L-100014','Akash Khan','Mirpur','01800000008','local','AM-001')
+into L_E_C4 values('L-100015','Hasib Khan','Mirpur','01800000009','local','AM-001')
+into L_E_C4 values('L-100017','Emon Reza','Uttara','01800000011','local','AM-002')
+into L_E_C4 values('L-100018','Mushfiq Rahim','Uttara','01800000012','local','AM-002')
+into L_E_C4 values('L-100019','Sakib Al Hasan','Uttara','01800000013','local','AM-002')
+into L_E_C4 values('L-100020','Liton Das','Uttara','01800000014','local','AM-002')
+into L_E_C4 values('L-100021','Muminul Haque','Uttara','01800000015','local','AM-002')
+into L_E_C4 values('L-100022','Leonel Messi','Uttara','01800000016','local','AM-002')
+into L_E_C4 values('L-100023','Enamun Haque','Uttara','01800000017','local','AM-002')
+into L_E_C4 values('L-100024','Kala Manik','Dhanmondi','01800000020','local','AM-003')
+into L_E_C4 values('L-100025','Shada Manik','Dhanmondi','01800000021','local','AM-003')
+into L_E_C4 values('L-100026','Holud Manik','Dhanmondi','01800000022','local','AM-003')
+into L_E_C4 values('L-100027','Golapi Manik','Dhanmondi','01800000023','local','AM-003')
+into L_E_C4 values('L-100028','Blue Manik','Dhanmondi','01800000024','local','AM-003')
+into L_E_C4 values('L-100029','Beguni Manik','Dhanmondi','01800000025','local','AM-003')
+into L_E_C4 values('L-100030','Laal Manik','Dhanmondi','01800000026','local','AM-003')
+into L_E_C4 values('L-100031','Shada Manik','Dhanmondi','01800000027','local','AM-003')
+select 1 from dual;
+
+
+insert all
+into Employee4 values('L-100008','Sector-11',5000,to_date('2/10/2020','MM/DD/YYYY'),4,'emp009','Free')
+into Employee4 values('L-100009','Sector-10',5000,to_date('3/10/2020','MM/DD/YYYY'),4,'emp0010','Free')
+into Employee4 values('L-100010','Sector-9',5000,to_date('4/10/2020','MM/DD/YYYY'),4,'emp0011','Free')
+into Employee4 values('L-100011','Sector-22',5000,to_date('5/10/2020','MM/DD/YYYY'),4,'emp012','Free')
+into Employee4 values('L-100012','Sector-32',5000,to_date('6/10/2020','MM/DD/YYYY'),4,'emp013','Free')
+into Employee4 values('L-100013','Sector-52',5000,to_date('7/10/2020','MM/DD/YYYY'),4,'emp014','Free')
+into Employee4 values('L-100014','Sector-62',5000,to_date('8/10/2020','MM/DD/YYYY'),4,'emp015','Free')
+into Employee4 values('L-100015','Sector-72',5000,to_date('9/10/2020','MM/DD/YYYY'),4,'emp016','Free')
+
+into Employee4 values('L-100017','Sector-92',5000,to_date('11/10/2020','MM/DD/YYYY'),4,'emp018','Free')
+into Employee4 values('L-100018','Sector-1',5000,to_date('12/10/2020','MM/DD/YYYY'),4,'emp019','Free')
+into Employee4 values('L-100019','Sector-2',5000,to_date('1/11/2020','MM/DD/YYYY'),4,'emp020','Free')
+into Employee4 values('L-100020','Sector-3',5000,to_date('1/13/2020','MM/DD/YYYY'),4,'emp021','Free')
+into Employee4 values('L-100021','Sector-4',5000,to_date('1/21/2020','MM/DD/YYYY'),4,'emp022','Free')
+into Employee4 values('L-100022','Sector-5',5000,to_date('1/30/2020','MM/DD/YYYY'),4,'emp023','Free')
+into Employee4 values('L-100023','Sector-6',5000,to_date('1/20/2020','MM/DD/YYYY'),4,'emp024','Free')
+into Employee4 values('L-100024','Sector-7',5000,to_date('1/14/2020','MM/DD/YYYY'),4,'emp025','Free')
+into Employee4 values('L-100025','Sector-8',5000,to_date('1/17/2020','MM/DD/YYYY'),4,'emp0026','Free')
+into Employee4 values('L-100026','Sector-9',5000,to_date('1/10/2019','MM/DD/YYYY'),4,'emp027','Free')
+into Employee4 values('L-100027','Sector-10',5000,to_date('1/10/2019','MM/DD/YYYY'),4,'emp028','Free')
+into Employee4 values('L-100028','Sector-12',5000,to_date('1/10/2019','MM/DD/YYYY'),4,'emp029','Free')
+into Employee4 values('L-100029','Sector-12',5000,to_date('1/10/2021','MM/DD/YYYY'),4,'emp030','Free')
+into Employee4 values('L-100030','Sector-15',5000,to_date('1/10/2019','MM/DD/YYYY'),4,'emp031','Free')
+into Employee4 values('L-100031','Sector-12',5000,to_date('10/10/2020','MM/DD/YYYY'),4,'emp032','Free')
+select 1 from dual;
+
+select local_e_c.nextval from dual
+select local_e_c.nextval from dual
+select local_e_c.nextval from dual
+select local_e_c.nextval from dual
+select local_e_c.nextval from dual
+select local_e_c.nextval from dual
+select local_e_c.nextval from dual
+select local_e_c.nextval from dual
+select local_e_c.nextval from dual
+select local_e_c.nextval from dual
+select local_e_c.nextval from dual
+select local_e_c.nextval from dual
+select local_e_c.nextval from dual
+select local_e_c.nextval from dual
+select local_e_c.nextval from dual
+select local_e_c.nextval from dual
+select local_e_c.nextval from dual
+select local_e_c.nextval from dual
+select local_e_c.nextval from dual
+select local_e_c.nextval from dual
+select local_e_c.nextval from dual
+select local_e_c.nextval from dual
+select local_e_c.nextval from dual
+select local_e_c.nextval from dual
+select local_e_c.nextval from dual
+select local_e_c.nextval from dual
+select local_e_c.nextval from dual
+select local_e_c.nextval from dual
+select local_e_c.nextval from dual
+select local_e_c.nextval from dual
+select local_e_c.nextval from dual
+select local_e_c.nextval from dual
+select local_e_c.nextval from dual
+
+
+
+insert all
+into L_E_C4 values('L-100032','Mollah Metals','Mirpur','01802000002','scrapdealer','AM-001')
+into L_E_C4 values('L-100033','Rahim khan','Mirpur','01800010002','scrapdealer','AM-001')
+into L_E_C4 values('L-100034','Kuddus','Uttara','01800000302','scrapdealer','AM-002')
+into L_E_C4 values('L-100035','Mollah Mia','Uttara','01807000002','scrapdealer','AM-002')
+into L_E_C4 values('L-100036','Hashem Uddin','Dhanmondi','01802300002','scrapdealer','AM-003')
+into L_E_C4 values('L-100037','HHM','Dhanmondi','01802300002','scrapdealer','AM-003')
+into L_E_C4 values('L-100038','Kochu Mia','Jatrabari','01802333002','scrapdealer','AM-004')
+into L_E_C4 values('L-100039','Abdul Khan','Jatrabari','01802353002','scrapdealer','AM-004')
+select 1 from dual;
+
+insert all
+into ScrapDealer4 values('L-100032','016350',120)
+into ScrapDealer4 values('L-100033','116350',100)
+into ScrapDealer4 values('L-100034','015350',90)
+into ScrapDealer4 values('L-100035','919350',120)
+into ScrapDealer4 values('L-100036','016399',60)
+into ScrapDealer4 values('L-100037','916350',200)
+into ScrapDealer4 values('L-100038','500920',110)
+into ScrapDealer4 values('L-100039','716350',230)
+select 1 from dual;
+
+select local_e_c.nextval from dual
+select local_e_c.nextval from dual
+select local_e_c.nextval from dual
+select local_e_c.nextval from dual
+select local_e_c.nextval from dual
+select local_e_c.nextval from dual
+select local_e_c.nextval from dual
+select local_e_c.nextval from dual
+
+
+insert all
+into L_E_C4 values('L-100040','Millat khan','Mirpur','01802000002','communityworker','AM-001')
+into L_E_C4 values('L-100041','Joshim Ahsan','Uttara','01802008002','communityworker','AM-002')
+into L_E_C4 values('L-100042','Mushi Hasan','Dhanmondi','01802000045','communityworker','AM-003')
+into L_E_C4 values('L-100043','Mr.Beast','Jatrabari','01802890002','communityworker','AM-004')
+select 1 from dual;
+
+insert all
+into CommunityWorker4 values('L-100040','Metropolitan_cleaner',10,40)
+into CommunityWorker4 values('L-100041','Metropolitan_cleaner',17,56)
+into CommunityWorker4 values('L-100042','Metropolitan_cleaner',30,200)
+into CommunityWorker4 values('L-100043','Metropolitan_cleaner',20,120)
+select 1 from dual;
+
+select local_e_c.nextval from dual
+select local_e_c.nextval from dual
+select local_e_c.nextval from dual
+select local_e_c.nextval from dual
+
+
+insert all
+into CorporateUser values('C-100001','01735093073','GrameenPhone','0716651','Mirpur',100,'AM-001')
+into CorporateUser values('C-100002','01635993073','Walton','0716681','Mirpur',200,'AM-001')
+into CorporateUser values('C-100003','01635893073','Vision','0716991','Mirpur',150,'AM-001')
+into CorporateUser values('C-100004','01635093099','CityTalk','7716651','Uttara',100,'AM-002')
+into CorporateUser values('C-100005','01635099090','Samsung','7716651','Uttara',123,'AM-002')
+into CorporateUser values('C-100006','01999093099','Banglalink','7712351','Uttara',200,'AM-002')
+into CorporateUser values('C-100007','01635093099','Walton','7710071','Dhanmondi',150,'AM-003')
+into CorporateUser values('C-100008','01835093099','LG','0910009','Dhanmondi',90,'AM-003')
+into CorporateUser values('C-100009','01634203099','Startech','0110721','Dhanmondi',70,'AM-003')
+into CorporateUser values('C-100010','01835093099','Walton','560402','Jatrabari',56,'AM-004')
+into CorporateUser values('C-100011','01835093099','PCWorld','560007','Jatrabari',98,'AM-004')
+into CorporateUser values('C-100012','01835093099','UCC','560420','Jatrabari',121,'AM-004')
+select 1 from dual;
+
+
+select corporate_company.nextval from dual
+select corporate_company.nextval from dual
+select corporate_company.nextval from dual
+select corporate_company.nextval from dual
+select corporate_company.nextval from dual
+select corporate_company.nextval from dual
+select corporate_company.nextval from dual
+select corporate_company.nextval from dual
+select corporate_company.nextval from dual
+select corporate_company.nextval from dual
+select corporate_company.nextval from dual
+select corporate_company.nextval from dual
+select corporate_company.nextval from dual
+
+
+insert all into segregation values('se1','Iron','50','s1','PL-7777758240')
+ into segregation values('se2','IronMobile','100','s7','PL-7777758240')
+into segregation values('se3','Copper','50','s6','PL-7777758240')
+into segregation values('se4','Plastic','75','s1','CW-7557758240')
+into segregation values('se5','PlasticMobile','100','s7','CW-7557758240')
+into segregation values('se6','PlasticCable','50','s7','CW-7557758240') select 1 from dual;
+
+
+
+insert all into sort values('s1','Motherboard','500','c1')
+into sort values('s2','Processor','500','c1')
+into sort values('s3','RAM','750','c1')
+into sort values('s4','HDD','2100','c1')
+into sort values('s5','Monitor','500','c2')
+into sort values('s6','Cable','1200','c2')
+into sort values('s7','Mobile','1000','c2') select 1 from dual;
+
+
+
+insert all into refurbished values('ref1','Asus Z390',to_date('11-JAN-2010','dd-MON-yyyy'),'30','2500','s1')
+into refurbished values('ref2','Gigabyte B450',to_date('2-FEB-2010','dd-MON-yyyy'),'2','3000','s1')
+into refurbished values('ref3','Samsung 21C99',to_date('25-FEB-2010','dd-MON-yyyy'),'5','5000','s5')
+into refurbished values('ref4','Samsung S9',to_date('1-MAR-2010','dd-MON-yyyy'),'1','7000','s7')
+into refurbished values('ref5','Iphone X',to_date('5-MAR-2010','dd-MON-yyyy'),'5','5000','s7') select 1 from dual;
+
+
+insert into company values('c1','RAD','33412','5-12-2020','4000','3500','500');
+insert into company values('c2','MOC','45321','3-1-2021','1500','1200','300');
+
+
+
+insert into employee values('e11201','John','Manager','Dhaka','25000','0112200001','john@gmail.com','c1');
+insert into employee values('e01011','Jett','Pick Up','Dhaka','10000','0211033100','jett@gmail.com','c1');
+insert into employee values('e21133','Hound','Recycler','Gazipur','12000','0111102011','hound@gmail.com','c1');
+insert into employee values('e12133','Cruse','Manager','Rajshai','30000','0112011300','cruse@gmail.com','c2');
+insert into employee values('e11321','Tom','Recycler','Rajshai','8000','0112100310','tom@gmail.com','c2');
+
+
+insert all into recycle value('re1','metal','1000','12-01-2000')
+into recycle values('re2','plastic','1020','12-02-2021') select 1 from dual;
+
+
+insert all 
+into storage_room values('STR-001','Dhaka','Mirpur','A','500')
+into storage_room values('STR-002','Dhaka','Uttara','B','500')
+into storage_room values('STR-003','Dhaka','Dhanmondi','C','500')
+into storage_room values('STR-004','Dhaka','Jatrabari','D','500')
+select * from dual;
+
+
+
+
+-- materials data
+
+INSERT INTO materials(material_code,material_name) VALUES ('m001','steel');
+INSERT INTO materials(material_code,material_name) VALUES ('m002','pcb');
+INSERT INTO materials(material_code,material_name) VALUES ('m003','copper wire');
+INSERT INTO materials(material_code,material_name) VALUES ('m004','plastic');
+
+
+-- recycled items data
+
+INSERT INTO recycled_items(item_code,item_name) VALUES ('r001','steel');
+INSERT INTO recycled_items(item_code,item_name) VALUES ('r002','iron');
+INSERT INTO recycled_items(item_code,item_name) VALUES ('r003','copper');
+INSERT INTO recycled_items(item_code,item_name) VALUES ('r004','tin');
+INSERT INTO recycled_items(item_code,item_name) VALUES ('r005','gold');
+INSERT INTO recycled_items(item_code,item_name) VALUES ('r006','silver');
+INSERT INTO recycled_items(item_code,item_name) VALUES ('r007','plastic');
+
+-- recycled item storage init
+
+INSERT INTO recycled_storage(item_code,item_amount) VALUES ('r001',0.00);
+INSERT INTO recycled_storage(item_code,item_amount) VALUES ('r002',0.00);
+INSERT INTO recycled_storage(item_code,item_amount) VALUES ('r003',0.00);
+INSERT INTO recycled_storage(item_code,item_amount) VALUES ('r004',0.00);
+INSERT INTO recycled_storage(item_code,item_amount) VALUES ('r005',0.00);
+INSERT INTO recycled_storage(item_code,item_amount) VALUES ('r006',0.00);
+INSERT INTO recycled_storage(item_code,item_amount) VALUES ('r007',0.00);
+
+
+------------------------------------------------------------------------------------------
+
+-- steel check
+INSERT INTO steel_recycle(process_id,steel,iron) VALUES ('p000001',20.2,10.1)
+INSERT INTO recycle(process_id,material_code,material_amount,process_date) VALUES('p000001','m001',50.00,(SELECT to_timestamp(SYSDATE,'DD-MM-YYYY HH:MI:SS AM') FROM dual))
+SELECT to_timestamp(SYSDATE,'DD-MM-YYYY HH:MI:SS AM') FROM dual
+
+
+-- pcb check
+INSERT INTO recycle(process_id,material_code,material_amount,process_date) VALUES('p000002','m002',30.00,(SELECT to_timestamp(SYSDATE,'DD-MM-YYYY HH:MI:SS AM') FROM dual))
+INSERT INTO pcb_recycle(process_id,copper,tin,steel,gold,silver) VALUES ('p000002',5.2,4.2,1.2,0.3,0.5)
+
+-- copper wire check
+
+INSERT INTO recycle(process_id,material_code,material_amount,process_date) VALUES('p000003','m003',42.2,(SELECT to_timestamp(SYSDATE,'MM-DD-YYYY HH:MI:SS AM') FROM dual))
+INSERT INTO copper_wire_recycle(process_id,copper,plastic) VALUES ('p000003',10.25,12.3)
+
+-- plastic check
+
+INSERT INTO recycle(process_id,material_code,material_amount,process_date) VALUES('p000004','m004',50,(SELECT to_timestamp(SYSDATE,'MM-DD-YYYY HH:MI:SS AM') FROM dual))
+INSERT INTO plastic_recycle(process_id,plastic) VALUES ('p000003',30.2)
+
+
+
+-------------------------------------------------------------------------------------------
+
+--process at jan 5th
+insert into recycle(process_id,material_code,material_amount,process_date) 
+values('PL-7777758240','m004',100.3,TO_DATE('2021/01/05 05:02:44', 'yyyy/mm/dd hh24:mi:ss'));
+INSERT INTO plastic_recycle(process_id,plastic) VALUES ('PL-7777758240',70.2);
+
+insert into recycle(process_id,material_code,material_amount,process_date) 
+values('CW-7557758240','m003',120.3,TO_DATE('2021/01/05 05:02:44', 'yyyy/mm/dd hh24:mi:ss'));
+INSERT INTO copper_wire_recycle(process_id,copper,plastic) VALUES ('CW-7557758240',30.2,50.2);
+
+insert into recycle(process_id,material_code,material_amount,process_date) 
+values('PB-9957758240','m002',80.3,TO_DATE('2021/01/05 05:02:44', 'yyyy/mm/dd hh24:mi:ss'));
+INSERT INTO pcb_recycle(process_id,copper,tin,steel,gold,silver) VALUES ('PB-9957758240',15.2,14.2,11.2,1.3,3.5);
+
+insert into recycle(process_id,material_code,material_amount,process_date) 
+values('ST-9957758277','m001',50.3,TO_DATE('2021/01/05 05:02:44', 'yyyy/mm/dd hh24:mi:ss'));
+INSERT INTO steel_recycle(process_id,steel,iron) VALUES ('ST-9957758277',20.2,10.1);
+
+--process at jan 6th
+
+
+insert into recycle(process_id,material_code,material_amount,process_date) 
+values('PL-7777711140','m004',50.3,TO_DATE('2021/01/06 05:02:42', 'yyyy/mm/dd hh24:mi:ss'));
+INSERT INTO plastic_recycle(process_id,plastic) VALUES ('PL-7777711140',32.2);
+
+insert into recycle(process_id,material_code,material_amount,process_date) 
+values('CW-7555558240','m003',87.3,TO_DATE('2021/01/06 05:02:42', 'yyyy/mm/dd hh24:mi:ss'));
+INSERT INTO copper_wire_recycle(process_id,copper,plastic) VALUES ('CW-7555558240',20.2,35.2);
+
+insert into recycle(process_id,material_code,material_amount,process_date) 
+values('PB-9957757250','m002',40.3,TO_DATE('2021/01/06 05:02:42', 'yyyy/mm/dd hh24:mi:ss'));
+INSERT INTO pcb_recycle(process_id,copper,tin,steel,gold,silver) VALUES ('PB-9957757250',5.2,4.2,1.2,.6,1.5);
+
+insert into recycle(process_id,material_code,material_amount,process_date) 
+values('ST-9957864277','m001',100.3,TO_DATE('2021/01/06 05:02:42', 'yyyy/mm/dd hh24:mi:ss'));
+INSERT INTO steel_recycle(process_id,steel,iron) VALUES ('ST-9957864277',40.2,20.1);
+
+
+--process at jan 7th
+
+
+insert into recycle(process_id,material_code,material_amount,process_date) 
+values('PL-7720258240','m004',50.3,TO_DATE('2021/01/07 05:02:42', 'yyyy/mm/dd hh24:mi:ss'));
+INSERT INTO plastic_recycle(process_id,plastic) VALUES ('PL-7720258240',32.2);
+
+insert into recycle(process_id,material_code,material_amount,process_date) 
+values('CW-7530158240','m003',87.3,TO_DATE('2021/01/07 05:02:42', 'yyyy/mm/dd hh24:mi:ss'));
+INSERT INTO copper_wire_recycle(process_id,copper,plastic) VALUES ('CW-7530158240',20.2,35.2);
+
+insert into recycle(process_id,material_code,material_amount,process_date) 
+values('PB-9954448240','m002',40.3,TO_DATE('2021/01/07 05:02:42', 'yyyy/mm/dd hh24:mi:ss'));
+INSERT INTO pcb_recycle(process_id,copper,tin,steel,gold,silver) VALUES ('PB-9954448240',5.2,4.2,1.2,.6,1.5);
+
+insert into recycle(process_id,material_code,material_amount,process_date) 
+values('ST-9999958277','m001',100.3,TO_DATE('2021/01/07 05:02:42', 'yyyy/mm/dd hh24:mi:ss'));
+INSERT INTO steel_recycle(process_id,steel,iron) VALUES ('ST-9999958277',40.2,20.1);
+
+
+--process at jan 8th
+
+insert into recycle(process_id,material_code,material_amount,process_date) 
+values('PL-7722038240','m004',55.3,TO_DATE('2021/01/08 04:02:42', 'yyyy/mm/dd hh24:mi:ss'));
+INSERT INTO plastic_recycle(process_id,plastic) VALUES ('PL-7722038240',33.2);
+
+insert into recycle(process_id,material_code,material_amount,process_date) 
+values('CW-7530501240','m003',112.3,TO_DATE('2021/01/08 04:02:42', 'yyyy/mm/dd hh24:mi:ss'));
+INSERT INTO copper_wire_recycle(process_id,copper,plastic) VALUES ('CW-7530501240',26.2,39.2);
+
+insert into recycle(process_id,material_code,material_amount,process_date) 
+values('PB-9953078240','m002',100.3,TO_DATE('2021/01/08 04:02:42', 'yyyy/mm/dd hh24:mi:ss'));
+INSERT INTO pcb_recycle(process_id,copper,tin,steel,gold,silver) VALUES ('PB-9953078240',19.2,15.2,10.2,2.6,6.5);
+
+insert into recycle(process_id,material_code,material_amount,process_date) 
+values('ST-9999803277','m001',50.3,TO_DATE('2021/01/08 04:02:42', 'yyyy/mm/dd hh24:mi:ss'));
+INSERT INTO steel_recycle(process_id,steel,iron) VALUES ('ST-9999803277',10.2,15.1);
+
+
+--process at jan 9th
+
+insert into recycle(process_id,material_code,material_amount,process_date) 
+values('PL-7788888240','m004',75.3,TO_DATE('2021/01/09 02:02:42', 'yyyy/mm/dd hh24:mi:ss'));
+INSERT INTO plastic_recycle(process_id,plastic) VALUES ('PL-7788888240',42.2);
+
+insert into recycle(process_id,material_code,material_amount,process_date) 
+values('CW-7532521240','m003',87.3,TO_DATE('2021/01/09 02:02:42', 'yyyy/mm/dd hh24:mi:ss'));
+INSERT INTO copper_wire_recycle(process_id,copper,plastic) VALUES ('CW-7532521240',21.2,33.2);
+
+insert into recycle(process_id,material_code,material_amount,process_date) 
+values('PB-9953345240','m002',101.3,TO_DATE('2021/01/09 02:02:42', 'yyyy/mm/dd hh24:mi:ss'));
+INSERT INTO pcb_recycle(process_id,copper,tin,steel,gold,silver) VALUES ('PB-9953345240',20.2,15.21,11.2,2.8,6.9);
+
+insert into recycle(process_id,material_code,material_amount,process_date) 
+values('ST-9123803277','m001',60.3,TO_DATE('2021/01/09 02:02:42', 'yyyy/mm/dd hh24:mi:ss'));
+INSERT INTO steel_recycle(process_id,steel,iron) VALUES ('ST-9123803277',15.2,17.1);
+
+
+
+INSERT INTO error(error_id ,type ,solving_cost) VALUES(error_error_id_seq.nextval,'Steel','500');
+INSERT INTO error(error_id ,type ,solving_cost) VALUES(error_error_id_seq.nextval,'Copper','520');
+
+
+
+INSERT INTO errorsOfRecycle(error_id ,r_process_id) VALUES('100','ST-9957864277');
+INSERT INTO errorsOfRecycle(error_id ,r_process_id) VALUES('101','CW-7530158240');​
